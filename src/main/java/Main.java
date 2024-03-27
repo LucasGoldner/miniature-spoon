@@ -1,9 +1,10 @@
 
-import utils.Color;
+
+import utils.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(Color.coloredString("Hello World!", "green"));
+        IO.run();
     }
 }
