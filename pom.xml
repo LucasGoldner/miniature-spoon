@@ -10,8 +10,34 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4</artifactId>
+            <version>4.7.1</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
+           <plugin>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-maven-plugin</artifactId>
+                <version>4.7.1</version>
+                <configuration>
+                    <sourceDirectory>${basedir}/src/main/antlr</sourceDirectory>
+                    <outputDirectory>${project.build.directory}/generated-sources/antlr</outputDirectory>
+                    <listener>true</listener>
+                    <visitor>true</visitor>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>antlr4</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
