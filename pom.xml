@@ -25,8 +25,12 @@
                 <artifactId>antlr4-maven-plugin</artifactId>
                 <version>4.7.1</version>
                 <configuration>
-                    <sourceDirectory>${basedir}/src/main/antlr</sourceDirectory>
-                    <outputDirectory>${project.build.directory}/generated-sources/antlr</outputDirectory>
+                    <sourceDirectory>${basedir}/src/main/java/antlr/grammar</sourceDirectory>
+                    <outputDirectory>${basedir}/src/main/java/antlr/output</outputDirectory>
+                    <arguments>
+                        <argument>-package</argument>
+                        <argument>antlr.output</argument>
+                    </arguments>
                     <listener>true</listener>
                     <visitor>true</visitor>
                 </configuration>
