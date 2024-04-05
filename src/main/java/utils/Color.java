@@ -7,7 +7,6 @@ public class Color {
     private static final String GREEN = "\u001B[32m";
     private static final String BLUE = "\u001B[34m";
     private static final String YELLOW = "\u001B[33m";
-
   
     public static String coloredString(String str, String op) {
         String color = "";

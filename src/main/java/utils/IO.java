@@ -6,13 +6,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class IO {
     private static final String ROOT = "src/main/resources/";
-
-    public static void run() {
-        run(ROOT);
-    }
 
     public static void read(String file) {
         String error = Color.coloredString("[Error]", "red");
@@ -36,18 +34,24 @@ public class IO {
         
     }
 
-    public static void run(String path) {
+    public static List<String> getFiles() {
+        return getFiles(ROOT);
+    }
+
+    public static List<String> getFiles(String path) {
         File file = new File(path);
+        List<String> list = new ArrayList<>();
 
         if(file.exists() && file.isDirectory()) {
             for(File f : file.listFiles()) {
                 if(f.isDirectory()) {
-                    System.out.println(Color.coloredString("[Dir]", "yellow") + " " + f.getName());
-                    run(f.getPath());
+                    list.addAll(getFiles(f.getPath()));
                 } else if(f.isFile()) {
-                    System.out.println(Color.coloredString("[File]", "blue") + " " + f.getName());
+                    list.add(f.getAbsolutePath());
                 }
             }
         }
+
+        return list;
     }
 }

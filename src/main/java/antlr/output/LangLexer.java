@@ -18,12 +18,12 @@ public class LangLexer extends Lexer {
 		new PredictionContextCache();
 	public static final int
 		BOOLEAN=1, INT=2, FLOAT=3, CHAR=4, DATA=5, IF=6, ELSE=7, ITERATE=8, NEW=9, 
-		RETURN=10, READ=11, PRINT=12, Identifier=13, DataIdentifier=14, IntLiteral=15, 
-		FloatLiteral=16, CharLiteral=17, BoolLiteral=18, NullLiteral=19, LPAREN=20, 
-		RPAREN=21, LBRACK=22, RBRACK=23, LBRACE=24, RBRACE=25, DOT=26, COMMA=27, 
-		SEMI=28, COLON=29, COLONCOLON=30, GT=31, LT=32, ASSIGN=33, EQUAL=34, BANG=35, 
-		NOTEQUAL=36, AND=37, ADD=38, SUB=39, MUL=40, DIV=41, MOD=42, WS=43, COMMENT=44, 
-		LINE_COMMENT=45, ERROR=46;
+		RETURN=10, READ=11, PRINT=12, ID=13, DATA_ID=14, INT_LITERAL=15, FLOAT_LITERAL=16, 
+		CHAR_LITERAL=17, BOOLEAN_LITERAL=18, NULL_LITERAL=19, LPAREN=20, RPAREN=21, 
+		LBRACK=22, RBRACK=23, LBRACE=24, RBRACE=25, DOT=26, COMMA=27, SEMI=28, 
+		COLON=29, COLONCOLON=30, GT=31, LT=32, ASSIGN=33, EQUAL=34, BANG=35, NOTEQUAL=36, 
+		AND=37, ADD=38, SUB=39, MUL=40, DIV=41, MOD=42, WS=43, COMMENT=44, LINE_COMMENT=45, 
+		ERROR=46;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -34,12 +34,11 @@ public class LangLexer extends Lexer {
 
 	public static final String[] ruleNames = {
 		"BOOLEAN", "INT", "FLOAT", "CHAR", "DATA", "IF", "ELSE", "ITERATE", "NEW", 
-		"RETURN", "READ", "PRINT", "Identifier", "DataIdentifier", "IntLiteral", 
-		"FloatLiteral", "CharLiteral", "BoolLiteral", "NullLiteral", "LPAREN", 
-		"RPAREN", "LBRACK", "RBRACK", "LBRACE", "RBRACE", "DOT", "COMMA", "SEMI", 
-		"COLON", "COLONCOLON", "GT", "LT", "ASSIGN", "EQUAL", "BANG", "NOTEQUAL", 
-		"AND", "ADD", "SUB", "MUL", "DIV", "MOD", "WS", "COMMENT", "LINE_COMMENT", 
-		"ERROR"
+		"RETURN", "READ", "PRINT", "ID", "DATA_ID", "INT_LITERAL", "FLOAT_LITERAL", 
+		"CHAR_LITERAL", "BOOLEAN_LITERAL", "NULL_LITERAL", "LPAREN", "RPAREN", 
+		"LBRACK", "RBRACK", "LBRACE", "RBRACE", "DOT", "COMMA", "SEMI", "COLON", 
+		"COLONCOLON", "GT", "LT", "ASSIGN", "EQUAL", "BANG", "NOTEQUAL", "AND", 
+		"ADD", "SUB", "MUL", "DIV", "MOD", "WS", "COMMENT", "LINE_COMMENT", "ERROR"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -51,12 +50,11 @@ public class LangLexer extends Lexer {
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, "BOOLEAN", "INT", "FLOAT", "CHAR", "DATA", "IF", "ELSE", "ITERATE", 
-		"NEW", "RETURN", "READ", "PRINT", "Identifier", "DataIdentifier", "IntLiteral", 
-		"FloatLiteral", "CharLiteral", "BoolLiteral", "NullLiteral", "LPAREN", 
-		"RPAREN", "LBRACK", "RBRACK", "LBRACE", "RBRACE", "DOT", "COMMA", "SEMI", 
-		"COLON", "COLONCOLON", "GT", "LT", "ASSIGN", "EQUAL", "BANG", "NOTEQUAL", 
-		"AND", "ADD", "SUB", "MUL", "DIV", "MOD", "WS", "COMMENT", "LINE_COMMENT", 
-		"ERROR"
+		"NEW", "RETURN", "READ", "PRINT", "ID", "DATA_ID", "INT_LITERAL", "FLOAT_LITERAL", 
+		"CHAR_LITERAL", "BOOLEAN_LITERAL", "NULL_LITERAL", "LPAREN", "RPAREN", 
+		"LBRACK", "RBRACK", "LBRACE", "RBRACE", "DOT", "COMMA", "SEMI", "COLON", 
+		"COLONCOLON", "GT", "LT", "ASSIGN", "EQUAL", "BANG", "NOTEQUAL", "AND", 
+		"ADD", "SUB", "MUL", "DIV", "MOD", "WS", "COMMENT", "LINE_COMMENT", "ERROR"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 

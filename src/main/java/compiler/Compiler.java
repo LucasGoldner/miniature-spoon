@@ -24,12 +24,12 @@ public class Compiler {
                 String type = lexer.getVocabulary().getSymbolicName(token.getType());
 
                 if(type.equals("ERROR")) {
-                    type = Color.coloredString(type, "red");
+                    type = Color.coloredString("[" + type + "]", "red");
                 } else {
-                    type = Color.coloredString(type, "blue");
+                    type = Color.coloredString("[" + type + "]", "blue");
                 }
 
-                System.out.println(type + ": " + token.getText());
+                System.out.println(type + " " + token.getText());
             }
         }
 

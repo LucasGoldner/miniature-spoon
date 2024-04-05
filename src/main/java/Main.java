@@ -1,10 +1,18 @@
 
-
 import utils.*;
 
-public class Main {
+import java.io.IOException;
 
-    public static void main(String[] args) {
-        IO.run();
+import compiler.Compiler;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        if(args.length != 0) {
+            String file = args[0];
+            
+            Compiler compiler = new Compiler(file);
+            compiler.lexer();
+
+        }
     }
 }

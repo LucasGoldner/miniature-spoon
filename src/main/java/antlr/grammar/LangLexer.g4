@@ -17,33 +17,33 @@ PRINT: 'print';
 
 // identifiers
 
-Identifier: [a-z] [a-zA-Z0-9_]*;
-DataIdentifier: [A-Z] [a-zA-Z0-9_]*;
+ID: [a-z] [a-zA-Z0-9_]*;
+DATA_ID: [A-Z] [a-zA-Z0-9_]*;
 
 // literals
 
-IntLiteral 
+INT_LITERAL 
     :   [0]+
     |   [1-9] [0-9]*
 	;
 
-FloatLiteral
+FLOAT_LITERAL
     :   [0]+ '.' [0-9]*
 	|   [1-9] [0-9]* '.' [0-9]+
 	|   '.' [0-9]+
 	;
 
-CharLiteral
+CHAR_LITERAL
 	:   '\'' ~['\\\r\n] '\''
     |   '\'' '\\' [btnr\\] '\''
 	;
 
-BoolLiteral
+BOOLEAN_LITERAL
 	:   'true'
 	|   'false'
 	;
 
-NullLiteral: 'null';
+NULL_LITERAL: 'null';
 
 // operators, separators 
 
