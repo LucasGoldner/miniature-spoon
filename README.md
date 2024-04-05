@@ -8,4 +8,4 @@ Pelo terminal ou prompt de comando acesse a pasta do projeto e execute o comando
     
 ## Execução:
 
-    java -jar .\target\dcc045-1.0-jar-with-dependencies.jar
+    java -jar .\target\dcc045-1.0-jar-with-dependencies.jar file.lan
