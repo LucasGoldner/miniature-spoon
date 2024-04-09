@@ -17,6 +17,11 @@ public class Compiler {
 
         if(IO.exists(file)) {
             this.path = file;
+            if(!this.path.endsWith(".lan")) {
+                String warning = Color.coloredString("[Warning]", "yellow");
+                System.out.println(warning + " " + this.path + " does not have .lan extension");
+            }
+
         } else {
             String error = Color.coloredString("[Error]", "red");
             System.out.println(error + " " + file + " not found");
@@ -25,23 +30,30 @@ public class Compiler {
     
     public void lexer() throws IOException {
         if(this.path != null) {
-            if(this.path.endsWith(".lan")) {
-                CharStream charStream = CharStreams.fromFileName(path);
-                LangLexer lexer = new LangLexer(charStream);
-                CommonTokenStream commonTokenStream = new CommonTokenStream(lexer);
+            CharStream cs = CharStreams.fromFileName(path);
+            LangLexer lexer = new LangLexer(cs);
+            CommonTokenStream cts = new CommonTokenStream(lexer);
 
-                for(int i = 0; i < commonTokenStream.getNumberOfOnChannelTokens(); i++) {
-                    Token token = commonTokenStream.getTokens().get(i);
-                    String type = lexer.getVocabulary().getSymbolicName(token.getType());
-
-                    if(type.equals("ERROR")) {
-                        type = Color.coloredString("["+type+"]", "red");
-                    } else {
-                        type = Color.coloredString("["+type+"]", "blue");
-                    }
-
-                    System.out.println(type + " " + token.getText());
+            int errors = 0;
+            for(int i = 0; i < cts.getNumberOfOnChannelTokens(); i++) {
+                Token token = cts.getTokens().get(i);
+                String type = lexer.getVocabulary().getSymbolicName(token.getType());
+                
+                String mgs = "";
+                String color = "blue";
+                if(type.equals("ERROR")) {
+                    color = "red";
+                    errors += 1;
+                    mgs = "[l:" + token.getLine() + ", c:" + token.getCharPositionInLine() + "] ";
                 }
+
+                type = Color.coloredString("["+type+"]", color);
+                System.out.println(type + " " + mgs + token.getText());
+            }
+
+            if(errors != 0) {
+                String error = Color.coloredString("[Error]", "red");
+                System.out.println(error + " " + this.path + " has been rejected");
             }
         }
     }
